@@ -87,7 +87,6 @@ class DGC(nn.Module):
         layer_idx = 0
 
         for i, (name, p) in enumerate(self.main_model.named_parameters()):
-            # print(i, name, p)
             if i in self.full_update_layers:
                 continue
             if len(p.grad.data.cpu().shape) == 4:
@@ -127,7 +126,6 @@ class DGC(nn.Module):
         avg_grads = []
         g_list =[]
         for i, (name, param) in enumerate(self.main_model.named_parameters()):
-            # print(i, name, param.shape)
             if i in self.full_update_layers:
                 continue
             if len(param.grad.data.cpu().shape) == 4:
